@@ -1,11 +1,11 @@
-package dao;
+package com.spring.jdbc.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import entities.Student;
+import com.spring.jdbc.entities.Student;
 
 public class StudentRowMapperImpl implements RowMapper<Student> {
 

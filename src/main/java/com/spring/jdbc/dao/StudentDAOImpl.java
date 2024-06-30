@@ -1,16 +1,16 @@
-package dao;
+package com.spring.jdbc.dao;
 
 import java.util.List;
 
-import javax.swing.tree.RowMapper;
-
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
-import entities.Student;
+import com.spring.jdbc.entities.Student;
 
+@Component("studentDAO")
 public class StudentDAOImpl  implements  StudentDAO {
+
+    private JdbcTemplate jdbcTemplate;
 
     public int insert(Student student) {
         JdbcTemplate jdbcTemplate=getJDBCTemplate();
@@ -43,9 +43,14 @@ public class StudentDAOImpl  implements  StudentDAO {
     };
     public JdbcTemplate getJDBCTemplate()
     {
-        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
-        JdbcTemplate jdbcTemplate = (JdbcTemplate) context.getBean("jdbcTemplate");
         return  jdbcTemplate;
     }
 
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate)
+    {
+        this.jdbcTemplate=jdbcTemplate;
+    }
+
 }
+
+
