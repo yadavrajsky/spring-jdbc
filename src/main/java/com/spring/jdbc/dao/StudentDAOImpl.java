@@ -2,6 +2,7 @@ package com.spring.jdbc.dao;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
@@ -46,6 +47,7 @@ public class StudentDAOImpl  implements  StudentDAO {
         return  jdbcTemplate;
     }
 
+    @Autowired
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate)
     {
         this.jdbcTemplate=jdbcTemplate;
